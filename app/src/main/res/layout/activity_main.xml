@@ -9,10 +9,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:gravity="center"
+        android:text="这是一个可以在你玩手机睡着后\n过一段时间把你叫醒的程序（大概吧...）\n目前只会振动，还不会响"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="V 1.1    Powered by TYZ"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </android.support.constraint.ConstraintLayout>

@@ -15,12 +15,13 @@ import xin.dspwljsyxgs.www.timer.ScreenObserver.ScreenStateListener;
 public class ScreenObserverActivity extends Activity {
     private String TAG = "ScreenObserverActivity";
     private ScreenObserver mScreenObserver;
-
+    private Vibrator vibrator=null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Toast.makeText(ScreenObserverActivity.this,"Welcome!",Toast.LENGTH_SHORT).show();
+        vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
         mScreenObserver = new ScreenObserver(this);
         mScreenObserver.requestScreenStateUpdate(new ScreenStateListener() {
             @Override
@@ -37,15 +38,20 @@ public class ScreenObserverActivity extends Activity {
 
     private void doSomethingOnScreenOn() {
         Log.i(TAG, "Screen is on");
-        Vibrator vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
         vibrator.cancel();
         Toast.makeText(ScreenObserverActivity.this,"Screen is on",Toast.LENGTH_SHORT).show();
     }
 
     private void doSomethingOnScreenOff() {
-        Log.i(TAG, "Screen is off");
-        Vibrator vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-        vibrator.vibrate(new long[]{100,100},0);
+
+            try{
+                Thread.sleep(15000);
+            }
+            catch (Exception e){
+
+            }
+            Log.i(TAG, "Screen is off");
+            vibrator.vibrate(new long[]{100, 100}, 0);
     }
 
     @Override
